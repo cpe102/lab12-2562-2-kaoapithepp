@@ -13,8 +13,21 @@ int main()
     cout << "Average = " << B[0];
     cout << "\nS.D. = " << B[1];
     cout << "\nMax = " << B[2];
-    cout << "\nMin = " << B[3];
+    cout << "\nMin = " << B[3] << endl;
     return 0;
 }
 
 //Write definition of stat() here 
+double eachSum;
+void stat(const double A[],int N,double B[]){
+    B[2]=A[0];
+    B[3]=A[0];
+    for (int i=0;i < N;i++){
+        B[0] += A[i]/N;
+        eachSum += pow(A[i],2);
+        B[1] = sqrt((eachSum/N)-pow(B[0],2));
+        if (B[2] < A[i]) B[2] = A[i];
+        if (B[3] > A[i]) B[3] = A[i];
+        
+    }
+}
